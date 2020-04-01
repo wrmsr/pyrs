@@ -10,12 +10,6 @@ edition = "2018"
 name = "pyadder"
 crate-type = ["cdylib"]
 
-[target.x86_64-apple-darwin]
-rustflags = [
-  "-C", "link-arg=-undefined",
-  "-C", "link-arg=dynamic_lookup",
-]
-
 [dependencies]
 add-one = { path = "../add-one" }
 
