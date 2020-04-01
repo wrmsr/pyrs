@@ -12,6 +12,7 @@ crate-type = ["cdylib"]
 
 [dependencies]
 add-one = { path = "../add-one" }
+pydicts = { path = "../pydicts" }
 
 [dependencies.pyo3]
 version = "0.9.1"
