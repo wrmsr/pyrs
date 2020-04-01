@@ -1,3 +1,10 @@
+/*
+TODO:
+ - https://users.rust-lang.org/t/deriving-external-traits-on-external-structs/18198
+ - https://serde.rs/remote-derive.html
+ - https://serde.rs/data-model.html
+ - https://serde.rs/impl-serializer.html
+*/
 #[macro_use]
 extern crate pyo3;
 extern crate serde;
@@ -33,7 +40,7 @@ fn get_default_user() -> PyResult<User> {
         age: 27,
     })
 }
-
+pyof3
 #[pymodule]
 fn pyadder(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(ret_one))?;
