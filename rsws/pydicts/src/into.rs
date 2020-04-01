@@ -51,6 +51,5 @@ pub fn into_impl(ast: DeriveInput) -> TokenStream {
                 dict.into()
             }
         }
-
     }
 }

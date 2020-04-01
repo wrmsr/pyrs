@@ -1,7 +1,9 @@
 #[macro_use]
 extern crate pyo3;
+extern crate serde;
 
 use pyo3::prelude::*;
+use serde::{Serialize, Deserialize};
 
 use pydicts::{FromPyObject, IntoPyObject};
 
@@ -11,7 +13,7 @@ fn ret_one() -> i32 {
     add_one::add_one(0)
 }
 
-#[derive(FromPyObject, IntoPyObject)]
+#[derive(Serialize, Deserialize, Debug, FromPyObject, IntoPyObject)]
 struct User {
     name: String,
     email: String,
@@ -43,8 +45,21 @@ fn pyadder(_py: Python, m: &PyModule) -> PyResult<()> {
 
 #[cfg(test)]
 mod tests {
+    use crate::User;
+
     #[test]
     fn it_works() {
         assert_eq!(2 + 2, 4);
+    }
+
+    #[test]
+    fn test_serde() {
+        let user = User { name: "name!".to_owned(), email: "email!".to_owned(), age: 420 };
+
+        let serialized = serde_json::to_string(&user).unwrap();
+        println!("serialized = {}", serialized);
+
+        let deserialized: User = serde_json::from_str(&serialized).unwrap();
+        println!("deserialized = {:?}", deserialized);
     }
 }

@@ -100,7 +100,6 @@ pub fn from_impl(ast: DeriveInput) -> TokenStream2 {
                 ::std::result::Result::Ok(#name {
                     #(#extractions),*
                 })
-
             }
         }
     }
