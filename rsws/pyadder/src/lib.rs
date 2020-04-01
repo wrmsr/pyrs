@@ -10,7 +10,7 @@ fn ret_one(line: &str, needle: &str) -> usize {
 }
 
 #[pymodule]
-fn word_count(_py: Python, m: &PyModule) -> PyResult<()> {
+fn pyadder(_py: Python, m: &PyModule) -> PyResult<()> {
     m.add_wrapped(wrap_pyfunction!(ret_one))?;
 
     Ok(())
