@@ -14,5 +14,5 @@ crate-type = ["cdylib"]
 add-one = { path = "../add-one" }
 
 [dependencies.pyo3]
-version = "0.9.1"
+version = "0.29.0"
 features = ["extension-module"]
